@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Vue Router Sample</title>
+  	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  	<link rel="stylesheet" type="text/css" href="./ixeb/css/common.css">
+  	<link rel="stylesheet" type="text/css" href="./ixeb/css/control.css">
+  </head>
+  <body>
+      <div id="app" class="">
+          <h1>뷰 라우터 예제</h1>
+          <p>
+              <router-link to="/main">Main 컴포넌트로 이동</router-link>
+              <router-link to="login">Login 컴포넌트로 이동</router-link>
+          </p>
+          <router-view></router-view>
+      </div>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+      <script type="text/javascript" src="https://unpkg.com/vue-router@3.0.1/dist/vue-router.js"></script>
+      <script type="text/javascript">
+          var Main = {
+              template: '<header> <div class="menu-area-wrapper"> <div class="menu-area"> <div> <span>Product</span> </div> <div> <span>Document</span> </div> <div> <span>Guide & Template</span> </div> <div> <span>Education</span> </div> <div> <span>Support</span> </div> </div> </div></header>'
+          };
+
+          var Login = {
+              template: '<div>login</div>'
+          };
+
+          var routes = [
+              {
+                path: '/main',
+                component: Main
+              },
+              {
+                path: '/login',
+                component: Login
+              }
+          ];
+          var mode = 'history';
+
+          var router = new VueRouter({
+              routes, mode
+          });
+          var app = new Vue({
+              router
+          }).$mount('#app');
+      </script>
+
+  </body>
+</html>
