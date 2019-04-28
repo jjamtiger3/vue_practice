@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Vue MaskEditor</title>
+  </head>
+  <body>
+      <div id="app">
+          <input v-bind:id="vId" v-bind:pattern="pattern" v-model="inputValue">
+      </div>
+
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+      <script type="text/javascript">
+          var vue = new Vue({
+              el: '#app',
+              data: {
+                  vId: 'editor',
+                  pattern: 'ZZZ-ZZ-ZZZZZ, ZZZZZZ-ZZZZZZZ',
+                  inputValue: ''
+              },
+              watch: {
+                  inputValue: function (value) {
+                      console.log(value);
+                  }
+              }
+          });
+      </script>
+  </body>
+</html>

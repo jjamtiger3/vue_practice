@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Vue Template</title>
+  </head>
+  <body>
+      <div id="app">
+          <a v-if="flag">두잇 Vue.js</a>
+          <ul>
+            <li v-for="sys in systems"> {{ sys }}</li>
+          </ul>
+          <p v-show="flag">두잇 Vue.js</p>
+          <h5 v-bind:id="uid">뷰 입문서</h5>
+          <button v-on:click="popupAlert(10);">경고 창 버튼</button>
+          <input v-model="message">
+      </div>
+
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+      <script type="text/javascript">
+          var vue = new Vue({
+              el: '#app',
+              data: {
+                  flag: true,
+                  systems: ['android', 'ios', 'window'],
+                  uid: 10,
+                  message: 'Hello Vue.js!'
+              },
+              methods: {
+                  popupAlert: function (msg) {
+                    console.log(event);
+                      return alert('경고 창 표시 :::  ' + msg);
+                  }
+              },
+              watch: {
+                  message: function(data) {
+                      console.log('message의 값이 바뀝니다 : ', data);
+                  }
+              }
+          });
+      </script>
+  </body>
+</html>
